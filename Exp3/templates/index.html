@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cluster Analyzer</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+            transition: transform 0.2s;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            color: #444;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="file"], select, input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+        input[type="submit"] {
+            background-color: #ff6b6b;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #e63946;
+        }
+        select:hover, input[type="file"]:hover {
+            border-color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSV for Analysis</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="file">Choose CSV file:</label>
+            <input type="file" name="file" id="file" required><br>
+
+            <label for="algorithm">Select Algorithm:</label>
+            <select name="algorithm" id="algorithm" required>
+                <option value="kmeans">K-Means</option>
+                <option value="em">EM (Expectation Maximization)</option>
+            </select><br>
+
+            <input type="submit" value="Upload & Analyze">
+        </form>
+    </div>
+</body>
+</html>
